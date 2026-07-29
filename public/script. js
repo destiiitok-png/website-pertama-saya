@@ -1,0 +1,50 @@
+// Tombol Salam dari Server
+document.getElementById('btn-salam').addEventListener('click', async () => {
+      try {
+            const response = await fetch('/api/salam');
+                const data = await response.json();
+
+                    const hasilDiv = document.getElementById('hasil-salam');
+                        hasilDiv.innerHTML = `
+                              <strong>${data.pesan}</strong><br>
+                                    <small>Waktu server: ${data.waktu}</small>
+                                        `;
+                                            hasilDiv.classList.add('show');
+      } catch (error) {
+            alert('Gagal mengambil data dari server');
+      }
+});
+
+// Form Kontak
+document.getElementById('form-kontak').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+        const resultDiv = document.getElementById('form-result');
+          resultDiv.innerHTML = '<strong>✅ Pesan berhasil dikirim! Terima kasih.</strong>';
+            resultDiv.classList.add('show');
+              resultDiv.style.color = '#4ecca3';
+
+                e.target.reset();
+
+                  setTimeout(() => {
+                        resultDiv.classList.remove('show');
+                  }, 3000);
+});
+
+// Smooth scroll untuk navigasi
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                          behavior: 'smooth'
+                });
+      });
+});
+                })
+      })
+})
+                  })
+})
+      }
+      }
+})
